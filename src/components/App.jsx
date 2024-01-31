@@ -1,12 +1,6 @@
 // App.jsx
 import React, { lazy, Suspense } from 'react';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-  Link,
-} from 'react-router-dom';
+import { Routes, Route, Navigate, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Header = styled.header`
@@ -42,38 +36,28 @@ const Reviews = lazy(() => import('./reviews/reviews'));
 
 const App = () => {
   return (
-    <Router>
+    <>
       <Header>
         <h1>Movies App</h1>
         <Nav>
-          <Link to="/goit-react-hw-05-movies">Home</Link>
-          <Link to="/goit-react-hw-05-movies/movies">Movies</Link>
+          <Link to="/">Home</Link>
+          <Link to="/movies">Movies</Link>
         </Nav>
       </Header>
       <Suspense fallback={<div>Loading...</div>}>
         <Container>
           <Routes>
-            <Route path="/goit-react-hw-05-movies" element={<Home />} />
-            <Route
-              path="/goit-react-hw-05-movies/movies"
-              element={<Movies />}
-            />
-            <Route
-              path="/goit-react-hw-05-movies/:movieId"
-              element={<MovieDetails />}
-            >
-              {/* Додайте маршрути для Cast та Reviews */}
+            <Route path="/" element={<Home />} />
+            <Route path="/movies" element={<Movies />} />
+            <Route path="/movies/:movieId" element={<MovieDetails />}>
               <Route path="cast" element={<Cast />} />
               <Route path="reviews" element={<Reviews />} />
             </Route>
-            <Route
-              path="*"
-              element={<Navigate to="/goit-react-hw-05-movies" />}
-            />
+            <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </Container>
       </Suspense>
-    </Router>
+    </>
   );
 };
 
