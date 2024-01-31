@@ -1,12 +1,6 @@
 // App.jsx
 import React, { lazy, Suspense } from 'react';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-  Link,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Header = styled.header`
@@ -60,7 +54,7 @@ const App = () => {
               <Route path="cast" element={<Cast />} />
               <Route path="reviews" element={<Reviews />} />
             </Route>
-            <Route path="*" element={<Navigate to="/" />} />
+            {/* Не потрібно використовувати path="*" тут */}
           </Routes>
         </Container>
       </Suspense>
