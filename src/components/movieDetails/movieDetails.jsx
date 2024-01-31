@@ -1,6 +1,7 @@
+// movieDetails.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 
 const MovieDetailsWrapper = styled.div`
@@ -94,6 +95,9 @@ const MovieDetails = () => {
         <Link to={`/movies/${movieId}/cast`}>Cast</Link>
         <Link to={`/movies/${movieId}/reviews`}>Reviews</Link>
       </div>
+
+      {/* Додаємо Outlet для вкладених маршрутів */}
+      <Outlet />
     </MovieDetailsWrapper>
   );
 };

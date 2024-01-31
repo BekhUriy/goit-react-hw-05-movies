@@ -57,8 +57,8 @@ const Cast = () => {
     <CastWrapper>
       <h1>Cast</h1>
       <ul>
-        {cast.map(actor => (
-          <li key={actor.id}>
+        {cast.map((actor, index) => (
+          <li key={`${actor.id}-${index}`}>
             {actor.profile_path && (
               <img
                 src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`}
