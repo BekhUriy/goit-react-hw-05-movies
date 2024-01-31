@@ -46,21 +46,30 @@ const App = () => {
       <Header>
         <h1>Movies App</h1>
         <Nav>
-          <Link to="/">Home</Link>
-          <Link to="/movies">Movies</Link>
+          <Link to="/goit-react-hw-05-movies">Home</Link>
+          <Link to="/goit-react-hw-05-movies/movies">Movies</Link>
         </Nav>
       </Header>
       <Suspense fallback={<div>Loading...</div>}>
         <Container>
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/movies" element={<Movies />} />
-            <Route path="/movies/:movieId" element={<MovieDetails />}>
+            <Route path="/goit-react-hw-05-movies" element={<Home />} />
+            <Route
+              path="/goit-react-hw-05-movies/movies"
+              element={<Movies />}
+            />
+            <Route
+              path="/goit-react-hw-05-movies/:movieId"
+              element={<MovieDetails />}
+            >
               {/* Додайте маршрути для Cast та Reviews */}
               <Route path="cast" element={<Cast />} />
               <Route path="reviews" element={<Reviews />} />
             </Route>
-            <Route path="*" element={<Navigate to="/" />} />
+            <Route
+              path="*"
+              element={<Navigate to="/goit-react-hw-05-movies" />}
+            />
           </Routes>
         </Container>
       </Suspense>
